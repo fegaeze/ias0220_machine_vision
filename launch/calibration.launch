@@ -1,0 +1,9 @@
+<launch>
+  <arg name="rvizconfig" default="$(find machine_vision_201400ivsm)/config/calibration.rviz" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+  <node name="image_publisher" pkg="machine_vision_201400ivsm" type="image_publisher.py" />
+  <node name="camera_calibration" pkg="machine_vision_201400ivsm" type="camera_calibration.py" output="screen" />
+
+  <node name="image_proc" pkg="image_proc" type="image_proc" />
+</launch>
